@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <style>
+    table {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            td {
+                text-align: center;
+                padding: 10px;
+            }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            font-family:Arial;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        #welcomeBanner {
+            background-color: powderblue;
+            color: black;
+            padding: 15px;
+            font-family:Courier New;
+            font-weight:bold;
+            font-size:30px;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .gallery-img {
+            width: 200px;
+            height: 120px;
+            border: 3px solid black;
+            cursor: pointer;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color:#FAEBD7">
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Main -->
+    <main>
+
+        <!-- Welcome Banner -->
+        <div id="welcomeBanner">
+            Welcome to our Community!<br>
+            <span style="color:red; font-weight:bold;">
+                Special Offer: Free Entry!
+            </span>
+        </div>
+
+        <!-- Home Section -->
+        <section id="home">
+            <h2 class="highlight">Community Portal</h2>
+            <p style="font-size:20px;">Welcome to the local community event portal. We are excited to have you here! Please contact us if you have any queries.</p>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events">
+            <h2 style="text-align:center"><ins>Past Event Gallery</ins></h2>
+
+            <table border="1">
+                <tr>
+                    <td>
+                        <img src="music.jpg"
+                             alt="Music Event"
+                             title="Music Event"
+                             class="gallery-img"
+                             ondblclick="enlargeImage(this)">
+                        <p>Music Festival</p>
+                    </td>
+
+                    <td>
+                        <img src="food.jpg"
+                             alt="Food Event"
+                             title="Food Event"
+                             class="gallery-img"
+                             ondblclick="enlargeImage(this)">
+                        <p>Food Carnival</p>
+                    </td>
+
+                    <td>
+                        <img src="sports.jpg"
+                             alt="Sports Event"
+                             title="Sports Event"
+                             class="gallery-img"
+                             ondblclick="enlargeImage(this)">
+                        <p>Sports Meet</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="art.jpg"
+                             alt="Art Event"
+                             title="Art Event"
+                             class="gallery-img"
+                             ondblclick="enlargeImage(this)">
+                        <p>Art Exhibition</p>
+                    </td>
+
+                    <td>
+                        <img src="dance.jpg"
+                             alt="Dance Event"
+                             title="Dance Event"
+                             class="gallery-img"
+                             ondblclick="enlargeImage(this)">
+                        <p>Dance Program</p>
+                    </td>
+
+                    <td>
+                        <img src="book.jpg"
+                             alt="Book Event"
+                             title="Book Event"
+                             class="gallery-img"
+                             ondblclick="enlargeImage(this)">
+                        <p>Book Fair</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Registration Form -->
+        <section>
+            <h2 class="highlight" style="text-align:center;">Event Registration</h2>
+
+            <form id="eventForm">
+
+                <label>Name:</label>
+                <input type="text"
+                       placeholder="Enter your name"
+                       required
+                       autofocus>
+
+                <label>Email:</label>
+                <input type="email"
+                       placeholder="Enter your email"
+                       required>
+
+                <label>Phone:</label>
+                <input type="text"
+                       id="phone"
+                       placeholder="Enter phone number"
+                       onblur="validatePhone()">
+
+                <label>Date:</label>
+                <input type="date" required>
+
+                <label>Event Type:</label>
+                <select id="eventType" onchange="showFee()">
+                    <option value="">Select</option>
+                    <option value="Music">Music</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Food">Food</option>
+                </select>
+
+                <p id="fee"></p>
+
+                <label>Message:</label>
+                <textarea id="feedback"
+                          placeholder="Enter message"
+                          onkeyup="countCharacters()"></textarea>
+
+                <p>Characters: <span id="charCount">0</span></p>
+
+                <button type="submit" onclick="showConfirmation()">
+                    Submit
+                </button>
+
+                <output id="outputMessage"></output>
+            </form>
+        </section>
+
+        <!-- Video Section -->
+        <section>
+            <h2>Event Promo Video</h2>
+
+            <iframe width="750" height="520"
+                src="https://www.bing.com/videos/riverview/relatedvideo?q=Event+Promo+Video+Template&&mid=11E36051DA6A3B30072911E36051DA6A3B300729&churl=https%3a%2f%2fwww.youtube.com%2fchannel%2fUCajohICvclyqW7scLd2gV4w&FORM=VRDGAR">
+                </iframe>
+
+            <p id="videoMessage"></p>
+        </section>
+
+        <!-- Geolocation -->
+        <section>
+            <h2>Find Nearby Events</h2>
+
+            <button onclick="getLocation()">
+                Find Nearby Events
+            </button>
+
+            <p id="location"></p>
+        </section>
+<hr>
+        <!-- Contact Section -->
+        <section id="contact">
+            <address><h2>Contact Us</h2>Email: community@gmail.com<br>
+            Phone number:9991234567</address>
+        </section>
+
+        <!-- Storage -->
+        <button onclick="clearPreferences()">
+            Clear Preferences
+        </button>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Local Community Event Portal;</p>
+    </footer>
+
+    <script>
+
+        // Phone validation
+        function validatePhone() {
+            let phone = document.getElementById("phone").value;
+
+            if (phone.length < 10) {
+                alert("Phone number must contain 10 digits");
+            }
+        }
+
+        // Show event fee
+        function showFee() {
+            let event = document.getElementById("eventType").value;
+            let fee = "";
+
+            if (event === "Music") {
+                fee = "Fee: ₹200";
+            }
+            else if (event === "Sports") {
+                fee = "Fee: ₹150";
+            }
+            else if (event === "Food") {
+                fee = "Fee: ₹100";
+            }
+
+            document.getElementById("fee").innerHTML = fee;
+
+            // Save preference
+            localStorage.setItem("preferredEvent", event);
+        }
+
+        // Confirmation message
+        function showConfirmation() {
+            document.getElementById("outputMessage").value =
+                "Registration Submitted Successfully!";
+        }
+
+        // Enlarge image
+        function enlargeImage(img) {
+            img.style.width = "300px";
+            img.style.height = "200px";
+        }
+
+        // Character count
+        function countCharacters() {
+            let text =
+                document.getElementById("feedback").value;
+
+            document.getElementById("charCount").innerHTML =
+                text.length;
+        }
+
+        // Video ready
+        function videoReady() {
+            document.getElementById("videoMessage").innerHTML =
+                "Video ready to play";
+        }
+
+        // Warn before leaving
+        window.onbeforeunload = function () {
+            return "Form is not submitted. Are you sure?";
+        };
+
+        // Load saved preference
+        window.onload = function () {
+            let savedEvent =
+                localStorage.getItem("preferredEvent");
+
+            if (savedEvent) {
+                document.getElementById("eventType").value =
+                    savedEvent;
+            }
+        };
+
+        // Clear storage
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+
+            alert("Preferences Cleared");
+        }
+
+        // Geolocation
+        const x = document.getElementById("location");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function success(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function error(error) {
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              x.innerHTML = "User denied the request for Geolocation."
+              break;
+            case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "Location information is unavailable."
+              break;
+            case error.TIMEOUT:
+              x.innerHTML = "The request to get user location timed out."
+              break;
+            case error.UNKNOWN_ERROR:
+              x.innerHTML = "An unknown error occurred."
+              break;
+          }
+        }
+        
+
+        console.log("Portal Loaded Successfully");
+
+    </script>
+
+</body>
+</html>
