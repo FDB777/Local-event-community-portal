@@ -5,48 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Community Event Portal</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-    table {
-                width: 100%;
-                margin-top: 20px;
-            }
-
-            td {
-                text-align: center;
-                padding: 10px;
-            }
-        nav {
-            background-color: #333;
-            padding: 10px;
-            font-family:Arial;
+        body {
+        background-color: #FAEBD7;
+        background-image: url("background.jpg");
+        font-family: 'Poppins', sans-serif;
         }
-
-        nav a {
-            color: white;
-            margin-right: 15px;
-            text-decoration: none;
-        }
-
-        #welcomeBanner {
-            background-color: powderblue;
-            color: black;
-            padding: 15px;
-            font-family:Courier New;
-            font-weight:bold;
-            font-size:30px;
-        }
-
-        .highlight {
-            background-color: yellow;
-            font-weight: bold;
-        }
-
-        .gallery-img {
-            width: 200px;
-            height: 120px;
-            border: 3px solid black;
-            cursor: pointer;
+        main {
+            margin: auto;
         }
 
         form {
@@ -65,26 +33,21 @@
             padding: 10px;
         }
 
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            background: #333;
-            color: white;
-            padding: 10px;
-        }
     </style>
 </head>
 
-<body style="background-color:#FAEBD7">
+<body>
 
     <!-- Navigation -->
     <nav>
-        <a href="#home">Home</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact</a>
-        <a href="help.html" target="_blank">Help</a>
-    </nav>
-
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="help.html" target="_blank">Help</a></li>
+    </ul>
+</nav>
+<div class="hiddenBox">Hidden Box</div>
     <!-- Main -->
     <main>
 
@@ -95,15 +58,15 @@
                 Special Offer: Free Entry!
             </span>
         </div>
-
+<div class="noneBox">None Box</div>
         <!-- Home Section -->
         <section id="home">
             <h2 class="highlight">Community Portal</h2>
             <p style="font-size:20px;">Welcome to the local community event portal. We are excited to have you here! Please contact us if you have any queries.</p>
         </section>
-
+        <br>
         <!-- Events Section -->
-        <section id="events">
+        <section class="eventCard">
             <h2 style="text-align:center"><ins>Past Event Gallery</ins></h2>
 
             <table border="1">
@@ -166,7 +129,21 @@
                 </tr>
             </table>
         </section>
+        <br>
+        <section class="newsArticle">
 
+        <h2>Community Bulletin</h2>
+
+        <p>
+            The local community center hosted a cultural festival this weekend.
+            Residents participated in music programs, food exhibitions, and art displays.
+            Several workshops were conducted for children and senior citizens.
+            The city council announced upcoming sports events and environmental campaigns.
+            Volunteers also organized a book donation drive for nearby schools.
+            Community members appreciated the efforts to bring people together and encourage participation in social activities.
+        </p>
+
+    </section>
         <!-- Registration Form -->
         <section>
             <h2 class="highlight" style="text-align:center;">Event Registration</h2>
@@ -217,10 +194,10 @@
                 <output id="outputMessage"></output>
             </form>
         </section>
-
+        <br>
         <!-- Video Section -->
         <section>
-            <h2>Event Promo Video</h2>
+            <h2 style="text-align:center">Event Promo Video</h2>
 
             <iframe width="750" height="520"
                 src="https://www.bing.com/videos/riverview/relatedvideo?q=Event+Promo+Video+Template&&mid=11E36051DA6A3B30072911E36051DA6A3B300729&churl=https%3a%2f%2fwww.youtube.com%2fchannel%2fUCajohICvclyqW7scLd2gV4w&FORM=VRDGAR">
@@ -242,7 +219,7 @@
 <hr>
         <!-- Contact Section -->
         <section id="contact">
-            <address><h2>Contact Us</h2>Email: community@gmail.com<br>
+            <address>Contact Us<br>Email: community@gmail.com<br>
             Phone number:9991234567</address>
         </section>
 
@@ -255,7 +232,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Local Community Event Portal;</p>
+        <p>Local Community Event Portal</p>
     </footer>
 
     <script>
